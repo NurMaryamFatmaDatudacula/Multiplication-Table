@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Multiplication Table </title>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid black;
+                padding: 10px;
+                font-size: 40px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Multiplication Table</h1>
+        <h3>Please only enter numbers between 2 and 10.</h3>
+        <button onclick="generateTable()">Make Table</button>
+        <br>
+        <br>
+        <br>
+        <table id = "table"></table>
+        <script>
+            function generateTable(){
+                var n = parseInt(prompt("Please enter a value for 'n' : "));
+                var m = parseInt(prompt("Please enter a value for 'm' : "));
+
+                while ( n < 2 || n > 10){
+                    alert("Numbers shoule be between 2 and 10. Please try again.");
+                    return;
+                }
+                var table = document.getElementById("table");
+                table.innerHTML = '';
+                
+                var i = 1;
+                do {
+                    var row = table.insertRow();
+                    var j = 1;
+                    do {
+                        var cell = row.insertCell();
+                        cell.textContent = i * j, " ";
+                        j++;
+                    }
+                    while (j <= m);
+                    i++
+                }
+               while (i <= n);
+            }
+        </script>
+    </body>
+</html>
